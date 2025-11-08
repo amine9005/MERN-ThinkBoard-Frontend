@@ -37,10 +37,6 @@ const HomePage = () => {
     <div className='min-h-screen'>
       <NavBar/>
       {isRateLimited && <RateLimitedUI/>}
-      {isLoading &&
-      <div className='mx-auto max-w-7xl pt-6 p-4'>
-        Loading notes ....
-      </div> }
 
       {notes.length === 0 && !isRateLimited &&
       <NotesNotFound/>}
