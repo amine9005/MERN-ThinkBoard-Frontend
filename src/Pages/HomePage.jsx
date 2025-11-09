@@ -5,6 +5,7 @@ import api from '../lib/axios'
 import toast from 'react-hot-toast'
 import NoteCard from '../Components/NoteCard'
 import NotesNotFound from '../Components/NotesNotFound'
+import { LoaderPinwheelIcon } from 'lucide-react'
 
 const HomePage = () => {
   const [isRateLimited,setIsRateLimited] = useState(false)
@@ -33,6 +34,17 @@ const HomePage = () => {
     };
     fetchNotes()
   }, [])
+
+  if (isLoading){
+    return (
+  <div className='min-h-screen'>
+    <NavBar/>
+      <div className='min-h-screen flex justify-center items-center'>
+        <LoaderPinwheelIcon className='animate-spin size-10 text-primary'/>
+      </div>
+  </div>)
+  }
+
   return (
     <div className='min-h-screen'>
       <NavBar/>
